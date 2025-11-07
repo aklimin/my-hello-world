@@ -4,13 +4,22 @@
   "description": "Hello World with SonarQube analysis",
   "main": "index.html",
   "scripts": {
-    "test": "echo \"No tests specified\" && exit 0",
+    "test": "jest",
+    "test:coverage": "jest --coverage",
     "sonar": "sonar-scanner"
   },
   "devDependencies": {
+    "jest": "^29.0.0",
+    "jsdom": "^22.0.0",
     "sonarqube-scanner": "^2.8.1"
   },
-  "keywords": ["github-pages", "sonarqube"],
-  "author": "Your Name",
-  "license": "MIT"
+  "jest": {
+    "testEnvironment": "jsdom",
+    "collectCoverageFrom": [
+      "script.js",
+      "**/*.{js,jsx}",
+      "!**/node_modules/**",
+      "!**/test/**"
+    ]
+  }
 }
