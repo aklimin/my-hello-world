@@ -1,0 +1,16 @@
+{
+  "name": "my-hello-world",
+  "version": "1.0.0",
+  "description": "Hello World with SonarQube analysis",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0",
+    "sonar": "sonar-scanner"
+  },
+  "devDependencies": {
+    "sonarqube-scanner": "^2.8.1"
+  },
+  "keywords": ["github-pages", "sonarqube"],
+  "author": "Your Name",
+  "license": "MIT"
+}
