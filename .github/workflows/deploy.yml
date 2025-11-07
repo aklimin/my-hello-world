@@ -1,0 +1,51 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    # Разрешаем запись в репозиторий для деплоя
+    permissions:
+      contents: write
+    
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies (если нужны)
+      run: |
+        # Если используете сборщик, установите зависимости
+        # npm ci
+        echo "No dependencies needed for static site"
+    
+    - name: Build step (опционально)
+      run: |
+        # Если нужна сборка
+        # npm run build
+        echo "No build step needed"
+    
+    - name: Run tests (опционально)
+      run: |
+        # Если есть тесты
+        # npm test
+        echo "No tests configured"
+    
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v3
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./
+        publish_branch: gh-pages
+        force_orphan: true
