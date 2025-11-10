@@ -1,8 +1,8 @@
 function changeGreeting() {
     const greetings = [
+        "Привет, мир!",
+        "Сәлам, дөнья!",
         "Hello, World!",
-        "Hola, Mundo!",
-        "Bonjour, Monde!",
         "Hallo, Welt!",
         "Ciao, Mondo!"
     ];
